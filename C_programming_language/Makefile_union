@@ -1,4 +1,0 @@
-all:
-	gcc c_union.cpp -o c_union
-
-
