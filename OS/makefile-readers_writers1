@@ -1,0 +1,4 @@
+readers_writers.o: readers_writers1.c
+	gcc readers_writers1.c -o readers_writers1 -pthread -Wall
+clean:
+	rm readers_writers1.o

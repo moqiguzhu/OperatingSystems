@@ -1,0 +1,4 @@
+test_pthread.o: test_pthread.c
+	gcc test_pthread.c -o test_pthread -Wall -pthread
+clean:
+	rm test_pthread.o
