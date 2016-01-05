@@ -1,0 +1,4 @@
+I have three versions for readers and writers problem.
+    - first, using basic locks and condition variables. In this way, you must have two condition variables and one shared variable(number of readers) and a basic lock, which is used to implement exclusive access to shared variable
+    - second, using semaphores. In this way, you need three semaphores, two semaphores function as two condition variables and one semaphore function as basic lock. You may ask why we do not need a shared variable again, the answer is that the function of shared variable(number of readers) is to indicate what time to use condition variables, and this kind of information has already been saved in three semaphores.(readers\_writers.c)
+    - third, this one is much similar to second one, but I combine the two readers' function into one.(readers\_writers.c)

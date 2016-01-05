@@ -1,0 +1,4 @@
+floppy_counter.o: floppy_counter.c
+	gcc floppy_counter.c -o floppy_counter -Wall -pthread
+clean:
+	rm floppy_counter.o
