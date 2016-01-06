@@ -1,0 +1,4 @@
+producer_consumer.o: producer_consumer.c
+	gcc -o producer_consumer producer_consumer.c -Wall -pthread
+clean:
+	rm producer_condumer.o
