@@ -32,6 +32,7 @@ int get()
 
 sem_t empty;
 sem_t full;
+sem_t mutex;
 
 // this function could only support one thread
 void *producer(void *arg)
@@ -40,7 +41,9 @@ void *producer(void *arg)
     for(i = 0; i < loops; i++)
     {
         sem_wait(&empty);
+        sem_wait(&mutex);
         put(i);
+        sem_post(&mutex);
         sem_post(&full);
     }
 
@@ -53,7 +56,9 @@ void *consumer(void *arg)
     for(i = 0; i < loops; i++)
     {
         sem_wait(&full);
+        sem_wait(&mutex);
         tmp = get();
+        sem_post(&mutex);
         sem_post(&empty);
         printf("current number : %d\n", tmp);
     }
