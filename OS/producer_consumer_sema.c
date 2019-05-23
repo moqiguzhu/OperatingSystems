@@ -47,6 +47,7 @@ void *producer(void *arg)
     return 0;
 }
 
+// this function could only support one thread
 void *consumer(void *arg)
 {
     int i, tmp = 0;
