@@ -35,6 +35,7 @@ sem_t full;
 sem_t mutex;
 
 // this function could only support one thread
+// this function could support multiple threads - 20190523
 void *producer(void *arg)
 {
     int i;
@@ -50,6 +51,7 @@ void *producer(void *arg)
     return 0;
 }
 
+// this function could support multiple threads - 20190523
 void *consumer(void *arg)
 {
     int i, tmp = 0;
@@ -70,6 +72,7 @@ int main()
 {
     sem_init(&empty, 0, MAX);
     sem_init(&full, 0, 0);
+    sem_init(&mutex, 0, 1);
 
     pthread_t p, c;
 
