@@ -74,13 +74,22 @@ int main()
     sem_init(&full, 0, 0);
     sem_init(&mutex, 0, 1);
 
-    pthread_t p, c;
+    pthread_t p, c, p1, p2, c1, c2;
 
     pthread_create(&p, NULL, producer, NULL);
+    pthread_create(&p1, NULL, producer, NULL);
+    pthread_create(&p2, NULL, producer, NULL);
+
     pthread_create(&c, NULL, consumer, NULL);
+    pthread_create(&c1, NULL, consumer, NULL);
+    pthread_create(&c2, NULL, consumer, NULL);
 
     pthread_join(p, NULL);
+    pthread_join(p1, NULL);
+    pthread_join(p2, NULL);
     pthread_join(c, NULL);
+    pthread_join(c1, NULL);
+    pthread_join(c2, NULL);
 
     return 0;
 }
